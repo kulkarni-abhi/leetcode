@@ -44,7 +44,6 @@ class Solution(object):
             hash_map[value] = index
         return
 
-
 mylist = [2,7,11,15]
 target = 9
 solution = Solution()

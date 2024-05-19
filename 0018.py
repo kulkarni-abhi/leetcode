@@ -53,6 +53,30 @@ class Solution(object):
                         l -= 1
         return res
 
+    # Find all combinations and then filter
+    def fourSum2(self, nums, target):
+        def combinations(mylist, r):
+            if r == 0:
+                return [[]]
+
+            quads = []
+            for i in range(len(mylist)):
+                first  = [ mylist[i] ]
+                others = mylist[i+1:]
+                combos = combinations(others, r-1)
+                for combination in combos:
+                    quads.append(first + combination)
+            return quads
+
+        result = list()
+        nums.sort()
+        sets = combinations(nums, 4)
+        for comb in sets:
+            if sum(comb) == target:
+                if not comb in result:
+                    result.append(comb)
+        return result
+
 solution = Solution()
 mlist = [1,0,-1,0,-2,2]
 goal = 0

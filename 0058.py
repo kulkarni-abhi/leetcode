@@ -13,3 +13,8 @@ class Solution(object):
                 break
             count += 1
         return count
+
+## Test Cases
+## "Hello World"
+## "   fly me   to   the moon  "
+## "luffy is still joyboy"

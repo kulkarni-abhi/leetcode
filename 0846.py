@@ -14,7 +14,31 @@ Explanation: Alice's hand can not be rearranged into groups of 4.
 """
 
 class Solution(object):
+    def __init__(self):
+        self.start = 0
+
     def isNStraightHand(self, hand, groupSize):
+        # Recursive
+        # Add constructor __init__ for start variable
+        length = len(hand)
+        if length % groupSize > 0:
+            return False
+
+        if self.start == 0:
+            hand.sort()
+            self.start = 1
+
+        if not hand:
+            return True
+
+        small = hand[0]
+        for i in range(small, small + groupSize):
+            if not i in hand:
+                return False
+            hand.pop(hand.index(i))
+        return self.isNStraightHand(hand, groupSize)
+
+    def isNStraightHand2(self, hand, groupSize):
         """
         :type hand: List[int]
         :type groupSize: int
@@ -31,14 +55,17 @@ class Solution(object):
             #sequence = list()
             small = hand[0]
             for i in range(small, small+groupSize):
+                print(i)
                 if not i in hand:
                     return False
-                #sequence.append(hand.pop(hand.index(i)))
+                hand.pop(hand.index(i))
+                #sequence.append(i)
             #result.append(sequence)
         #print(result)
         return True
 
-    def isNStraightHand_dict(self, hand, groupSize):
+    def isNStraightHand3(self, hand, groupSize):
+        # without sort, using hashmap
         hashmap = dict()
         for num in hand:
             hashmap[num] = hashmap.get(num, 0) + 1

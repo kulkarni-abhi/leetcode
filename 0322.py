@@ -5,7 +5,38 @@ Tabular Solution
 
 """
 class Solution(object):
-    def coinChangeTabularRecommended(self, coins, amount):
+
+class Solution(object):
+    def coinChangeRealTabular(self, coins, amount):
+        """
+        :type coins: List[int]
+        :type amount: int
+        :rtype: int
+        """
+        result = list()
+
+        # Initialize Matrix
+        for row in range(len(coins)):
+            result.insert(row, [])
+            for col in range(amount + 1):
+                result[row].insert(col, amount + 1)
+
+        for row in range(len(coins)):
+            for col in range(amount + 1):
+                if col == 0:
+                    result[row][col] = 0
+                    continue
+                if coins[row] > col:
+                    result[row][col] = result[row-1][col]
+                else:
+                    exclude_coin = result[row-1][col]
+                    include_coin = 1 + result[row][col - coins[row]]
+                    result[row][col] = min(exclude_coin, include_coin)
+        if result[-1][-1] > amount:
+            return -1
+        return result[-1][-1]
+
+    def coinChangeTabularSmall(self, coins, amount):
         """
         :type coins: List[int]
         :type amount: int
@@ -24,7 +55,6 @@ class Solution(object):
             return dp[amount]
         else:
             return -1
-
     
     def coinChange(self, coins, amount):
         """

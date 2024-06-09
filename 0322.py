@@ -1,6 +1,8 @@
 """
 Leetcode 0322: Smallest Coins Change combination
 
+Tabular Solution
+
 """
 class Solution(object):
     def coinChange(self, coins, amount):

@@ -1,3 +1,8 @@
+"""
+Leetcode 0088: Merge two sorted arrays and print number of unique elements
+
+"""
+
 class Solution(object):
     def merge(self, nums1, m, nums2, n):
         """

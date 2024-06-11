@@ -25,26 +25,17 @@ Constraints:
 strs[i] consists of only lowercase English letters.
 
 """
-
-def longestCommonPrefix(strs):
-    """
-    :type strs: List[str]
-    :rtype: str
-    """
-
-    base_str = strs.pop()
-    size = len(base_str)
-    matched = False
-    prefix = ""
-    for i in range(size, -1, -1):
-      prefix = base_str[:i]
-      matched = True
-      for word in strs:
-        if not word.startswith(prefix):
-          matched = False
-          break
-      if matched:
-        break
+def longestCommonPrefix(self, strs: List[str]) -> str:
+    prefix = strs[0]
+    while prefix:
+        matched = True
+        for word in strs:
+            if not word.startswith(prefix):
+                matched = False
+                break
+        if matched:
+            break
+        prefix = prefix[:-1]
     return prefix
 
 mlist = ["flower","flow","flight"]

@@ -1,4 +1,10 @@
 class Solution(object):
+    def climbStairsRecursive(self, n: int) -> int:
+        # Not Recommended
+        if n <= 2:
+            return n
+        return self.climbStairs(n-1) + self.climbStairs(n-2)
+        
     def climbStairs(self, n):
         """
         :type n: int

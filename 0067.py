@@ -1,34 +1,24 @@
-class Solution(object):
-    def addBinary(self, a, b):
-        """
-        :type a: str
-        :type b: str
-        :rtype: str
-        """
-        answer = ""
-        carry = 0
-        length_a = len(a)
-        length_b = len(b)
-        i = 0
-        # traverse both list in reverse order
-        # length_a - 1, length_a - 2, length_a - 3
-        # i = 1, 2, 3, ....
+class Solution:
+    def addBinary(self, a: str, b: str) -> str:
+        result = ""
 
-        while i < length_a or i < length_b or carry != 0:
-            num1 = 0
-            # set num1 if list1 is not exausted
-            if i < len(a):
-                num1 = int(a[length_a - i - 1])
-            
-            num2 = 0
-            # set num2 if list2 is not exausted
-            if i < len(b):
-                num2 = int(b[length_b - i - 1])
+        i = len(a) - 1
+        j = len(b) - 1
+
+        carry = 0
+
+        while i >= 0 or j >= 0 or carry:
+            num1 = num2 = 0
+            if i >= 0:
+                num1 = int(a[i])
+            if j >= 0:
+                num2 = int(b[j])
 
             total = num1 + num2 + carry
             val = total % 2
-            carry = total / 2
-            answer = "%d%s" % (val, answer)
+            carry = total // 2
 
-            i += 1
-        return answer
+            result = str(val) + result
+            i -= 1
+            j -= 1
+        return result

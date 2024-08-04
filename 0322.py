@@ -7,8 +7,25 @@ Tabular Solution
 class Solution(object):
 
 class Solution(object):
-    #This is 2D Table Array
+    #This is 2D Table Array (This is correct)
     #https://www.youtube.com/watch?v=J2eoCvk59Rc
+    def coinChangeRun(self, coins: List[int], amount: int) -> int:
+        dp = [[amount+1] * (amount+1) for _ in range(len(coins))]
+        for i in range(len(coins)):
+            for j in range(amount + 1):
+                if j == 0:
+                    dp[i][j] = 0
+                    continue
+                if coins[i] > j:
+                    dp[i][j] = dp[i-1][j]
+                else:
+                    dp[i][j] = min(dp[i-1][j], 1 + dp[i][j-coins[i]])
+        #pp.pprint(dp)
+        if dp[-1][-1] > amount:
+            return -1
+        return dp[-1][-1]
+
+    
     def coinChangeRealTabular(self, coins, amount):
         """
         :type coins: List[int]

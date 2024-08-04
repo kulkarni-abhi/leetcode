@@ -7,6 +7,8 @@ Tabular Solution
 class Solution(object):
 
 class Solution(object):
+    #This is 2D Table Array
+    #https://www.youtube.com/watch?v=J2eoCvk59Rc
     def coinChangeRealTabular(self, coins, amount):
         """
         :type coins: List[int]

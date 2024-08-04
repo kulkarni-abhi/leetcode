@@ -1,5 +1,7 @@
 """
 Leetcode 0518: Coin change - II
+https://www.youtube.com/watch?v=L27_JpN6Z1Q
+DP Table
 """
 
 import pprint

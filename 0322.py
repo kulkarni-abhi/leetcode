@@ -5,8 +5,6 @@ Tabular Solution
 
 """
 class Solution(object):
-
-class Solution(object):
     #This is 2D Table Array (This is correct)
     #https://www.youtube.com/watch?v=J2eoCvk59Rc
     def coinChangeRun(self, coins: List[int], amount: int) -> int:

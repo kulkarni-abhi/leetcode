@@ -1,0 +1,13 @@
+801. Minimum Swaps To Make Sequences Increasing
+2934. Minimum Operations to Maximize Last Elements in Arrays
+2366. Minimum Replacements to Sort the Array
+2134. Minimum Swaps to Group All 1's Together II
+2111. Minimum Operations to Make the Array K-Increasing
+1713. Minimum Operations to Make a Subsequence
+2340. Minimum Adjacent Swaps to make a valid array
+453. Minimum Moves to Equal Array Elements\
+462. Minimum Moves to Equal Array Elements II
+769. Max Chunks To Make Sorted
+1674. Minimum Moves to Make Array Complementary
+1536. Minimum Swaps to Arrange a Binary Grid
+1141. Minimum Swaps to Group All 1's Together
